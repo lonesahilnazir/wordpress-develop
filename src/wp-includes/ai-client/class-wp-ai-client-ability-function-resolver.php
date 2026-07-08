@@ -19,6 +19,8 @@ use WordPress\AiClient\Tools\DTO\FunctionResponse;
  * This class must be instantiated with the specific abilities that the AI model
  * is allowed to execute, ensuring that only explicitly specified abilities can
  * be called. This prevents the model from executing arbitrary abilities.
+ * Local ability names use hyphens, not underscores, which keeps the `__`
+ * separator unambiguous in function names.
  *
  * @since 7.0.0
  */
@@ -203,7 +205,7 @@ class WP_AI_Client_Ability_Function_Resolver {
 	/**
 	 * Converts an ability name to a function name.
 	 *
-	 * Transforms "tec/create_event" to "wpab__tec__create_event".
+	 * Transforms "tec/create-event" to "wpab__tec__create-event".
 	 *
 	 * @since 7.0.0
 	 *
@@ -217,7 +219,7 @@ class WP_AI_Client_Ability_Function_Resolver {
 	/**
 	 * Converts a function name to an ability name.
 	 *
-	 * Transforms "wpab__tec__create_event" to "tec/create_event".
+	 * Transforms "wpab__tec__create-event" to "tec/create-event".
 	 *
 	 * @since 7.0.0
 	 *
